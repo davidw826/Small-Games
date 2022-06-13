@@ -3,7 +3,7 @@ def print_board(board):
     def print_line(line):
         print("|")
         for x in line:
-            print line(x)+"|"
+            print(line(x)+"|")
     
     h_line = "="*9
     print(h_line)
