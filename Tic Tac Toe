@@ -1,7 +1,7 @@
 def print_board(board):
     
     def print_line(line,num):
-        to_print = "|"
+        to_print = num+"|"
         for x in line:
             to_print += (x+"|")
         print(to_print)
@@ -10,12 +10,12 @@ def print_board(board):
     print(" 1 2 3")
     print(h_line)
     for x in board:
-        print_line(x)
+        print_line(x,board.find(x)+1)
     print(h_line)
 
 def move(board):
-    move_input
+    move_input = 1
 
-#board = [["X","O"," "],["O"," ","X"],[" "," ","X"]]
+board = [["X","O"," "],["O"," ","X"],[" "," ","X"]]
 
 print_board(board)
