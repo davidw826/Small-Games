@@ -10,3 +10,7 @@ def print_board(board):
     for x in board:
         print_line(x)
     print(h_line)
+    
+board = [["X","O",""],["O","","X"],["","","X"]]
+
+print_board(board)
