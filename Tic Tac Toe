@@ -14,8 +14,26 @@ def print_board(board):
     print(h_line)
 
 def move(board):
-    move_input = 1
+    move_input = input("Enter your move as column first and row second (ex. '12' = top middle position).")
+    position = board[int(move_input[1])][int(move_input[0])]
+    if position == " ":
+        new_board = []
+        for x in list(range(3)):
+            if x != int(move_input[1])-1:
+                new_board.append(board[x])
+            else:
+                row = board[x]
+                new_row = []
+                for y in list(range(3):
+                    if y != int(move_input[0])-1:
+                        new_row.append(row[y])
+                    else:
+                        new_row.append("X")
+                new_board.append(new_row)
+        return new_board
 
 board = [["X","O"," "],["O"," ","X"],[" "," ","X"]]
 
 print_board(board)
+
+print_board(move(board))
