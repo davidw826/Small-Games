@@ -1,16 +1,16 @@
 def print_board(board):
     
     def print_line(line,num):
-        to_print = num+"|"
+        to_print = num+" |"
         for x in line:
             to_print += (x+"|")
         print(to_print)
     
-    h_line = "="*7
-    print(" 1 2 3")
+    h_line ="  "+"="*7
+    print("   1 2 3")
     print(h_line)
     for x in board:
-        print_line(x,board.find(x)+1)
+        print_line(x,str(board.index(x)+1))
     print(h_line)
 
 def move(board):
