@@ -1,17 +1,21 @@
 def print_board(board):
     
-    def print_line(line):
-        to_print("|")
+    def print_line(line,num):
+        to_print = "|"
         for x in line:
             to_print += (x+"|")
         print(to_print)
     
-    h_line = "="*9
+    h_line = "="*7
+    print(" 1 2 3")
     print(h_line)
     for x in board:
         print_line(x)
     print(h_line)
-    
-board = [["X","O",""],["O","","X"],["","","X"]]
+
+def move(board):
+    move_input
+
+#board = [["X","O"," "],["O"," ","X"],[" "," ","X"]]
 
 print_board(board)
