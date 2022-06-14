@@ -31,7 +31,13 @@ def move(board):
                         new_row.append("X")
                 new_board.append(new_row)
         return new_board
-        
+
+def ai_move(board):
+    for x in range(3):
+        for y in range(3):
+            if board[x][y] == " ":
+                return str(x)+str(y)
+
 def check_win(board):
     for x in ["X","O"]:
         for y in list(range(3)):
@@ -53,6 +59,12 @@ def play(board):
     if check_win(board) in ["X","O"]:
         print(check_win(board)+" is the winner!")
     else:
-        play(move(board))
+        board = move(board)
+        print_board(board)
+        play(move(ai_move(board)))
     
-board = [["X","O"," "],["O"," ","X"],[" "," ","X"]]
+#board = [["X","O"," "],["O"," ","X"],[" "," ","X"]]
+
+board = [[" "," "," "],[" "," "," "],[" "," "," "]]
+
+play(board)
