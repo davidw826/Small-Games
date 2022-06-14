@@ -10,11 +10,10 @@ def print_board(board):
     print("   1 2 3")
     print(h_line)
     for x in list(range(3)):
-        print_line(board[x],str(board.index(x)+1))
+        print_line(board[x],str(x+1))
     print(h_line)
 
-def move(board):
-    move_input = input("Enter your move as column first and row second (ex. '21' = top middle position). ")
+def move(board,move,symbol):
     position = board[int(move_input[1])-1][int(move_input[0])-1]
     if position == " ":
         new_board = []
@@ -59,9 +58,10 @@ def play(board):
     if check_win(board) in ["X","O"]:
         print(check_win(board)+" is the winner!")
     else:
-        board = move(board)
+        player_move = move_input = input("Enter your move as column first and row second (ex. '21' = top middle position). ")
+        board = move(board,player_move,"X")
         print_board(board)
-        play(move(ai_move(board)))
+        play(move(board,ai_move(board),"O"))
     
 #board = [["X","O"," "],["O"," ","X"],[" "," ","X"]]
 
