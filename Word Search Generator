@@ -1,1 +1,10 @@
+alphabet = ['A','B','C','D','E','F','G','H','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 
+def word_input(words):
+    new_word = input("What word would you like to add to the puzzle? \nEnter '0' if you are done adding words. ")
+    if new_word == 0:
+        return words
+    else:
+        word_input(words.append(new_word))
+
+print(word_input)
