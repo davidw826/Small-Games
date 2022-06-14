@@ -4,7 +4,7 @@ def word_input(words):
     print(words)
     new_word = input("What word would you like to add to the puzzle? \nEnter '0' if you are done adding words. ")
     print(new_word)
-    if new_word == 0:
+    if new_word == '0':
         return words
     else:
         words.append(new_word)
