@@ -41,10 +41,10 @@ def check_win(board):
     for x in ["X","O"]:
         for y in list(range(3)):
             for z in list (range(3)):
-                if y == 1 and z != 1:
+                if y == 1:
                     if board[y-1][z] == board[y][z] == board[y+1][z] == x:
                         return x
-                elif z == 1 and y != 1:
+                elif z == 1:
                     if board[y][z-1] == board[y][z] == board[y][z+1] == x:
                         return x
                 elif y == 1 and z == 1:
@@ -54,7 +54,6 @@ def check_win(board):
                         return x
 
 def play(board,player):
-    print(player)
     if check_win(board) in ["X","O"]:
         print(check_win(board)+" is the winner!")
     else:
