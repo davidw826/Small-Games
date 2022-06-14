@@ -74,3 +74,6 @@ board = [[" "," "," "],[" "," "," "],[" "," "," "]]
 
 print_board(board)
 play(board,0)
+
+#print(check_win([[" ","X"," "],[" ","X"," "],[" ","X"," "]]))
+print(check_win([["X"," "," "],[" ","X"," "],[" ", " ","X"]]))
