@@ -48,11 +48,11 @@ def check_win(board):
                     elif board[y+1][z-1] == board[y][z] == board[y-1][z+1] == x:
                         return x
 
+def play(board):
+    print_board(board)
+    if check_win(board) in ["X","O"]:
+        print(check_win(board)+" is the winner!")
+    else:
+        play(move(board))
+    
 board = [["X","O"," "],["O"," ","X"],[" "," ","X"]]
-
-print_board(board)
-
-if check_win(board) in ["X","O"]:
-    print(check_win(board)+" is the winner!")
-
-print_board(move(board))
