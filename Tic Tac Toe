@@ -13,7 +13,7 @@ def print_board(board):
         print_line(board[x],str(x+1))
     print(h_line)
 
-def move(board,move,symbol):
+def move(board,move_input,symbol):
     position = board[int(move_input[1])-1][int(move_input[0])-1]
     if position == " ":
         new_board = []
@@ -27,7 +27,7 @@ def move(board,move,symbol):
                     if y != int(move_input[0])-1:
                         new_row.append(row[y])
                     else:
-                        new_row.append("X")
+                        new_row.append(symbol)
                 new_board.append(new_row)
         return new_board
 
@@ -35,7 +35,7 @@ def ai_move(board):
     for x in list(range(3)):
         for y in list(range(3)):
             if board[x][y] == " ":
-                return str(x)+str(y)
+                return str(x+1)+str(y+1)
 
 def check_win(board):
     for x in ["X","O"]:
@@ -53,15 +53,19 @@ def check_win(board):
                     elif board[y+1][z-1] == board[y][z] == board[y-1][z+1] == x:
                         return x
 
-def play(board):
+def play(board,player):
     print_board(board)
     if check_win(board) in ["X","O"]:
         print(check_win(board)+" is the winner!")
     else:
-        player_move = move_input = input("Enter your move as column first and row second (ex. '21' = top middle position). ")
-        board = move(board,player_move,"X")
-        print_board(board)
-        play(move(board,ai_move(board),"O"))
+        if player == 0:
+            player_move = input("Enter your move as column first and row second (ex. '21' = top middle position). ")
+            board = move(board,player_move,"X")
+            play(move(board,1))
+        else:
+            board = move(board,ai_move,"X")
+            play(move(board,0))
+        
     
 #board = [["X","O"," "],["O"," ","X"],[" "," ","X"]]
 
