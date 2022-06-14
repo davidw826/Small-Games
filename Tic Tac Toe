@@ -44,10 +44,10 @@ def check_win(board):
                 if y == 1:
                     if board[y-1][z] == board[y][z] == board[y+1][z] == x:
                         return x
-                elif z == 1:
+                if z == 1:
                     if board[y][z-1] == board[y][z] == board[y][z+1] == x:
                         return x
-                elif y == 1 and z == 1:
+                if y == 1 and z == 1:
                     if board[y-1][z-1] == board[y][z] == board[y+1][z+1] == x:
                         return x
                     elif board[y+1][z-1] == board[y][z] == board[y-1][z+1] == x:
@@ -74,6 +74,3 @@ board = [[" "," "," "],[" "," "," "],[" "," "," "]]
 
 print_board(board)
 play(board,0)
-
-#print(check_win([[" ","X"," "],[" ","X"," "],[" ","X"," "]]))
-print(check_win([["X"," "," "],[" ","X"," "],[" ", " ","X"]]))
