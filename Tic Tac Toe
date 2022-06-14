@@ -50,9 +50,12 @@ def check_win(board):
 
 board = [["X","O"," "],["O"," ","X"],[" "," ","X"]]
 
+print_board(board)
+
 if check_win(board) in ["X","O"]:
     print(check_win(board)+" is the winner!")
 
-print_board(board)
-
 print_board(move(board))
+
+if check_win(board) in ["X","O"]:
+    print(check_win(board)+" is the winner!")
