@@ -35,6 +35,9 @@ def ai_move(board):
     for x in list(range(3)):
         for y in list(range(3)):
             if board[x][y] == " ":
+                print(board[x][y])
+                print(board)
+                print(str(x+1)+str(y+1))
                 return str(x+1)+str(y+1)
 
 def check_win(board):
@@ -54,21 +57,26 @@ def check_win(board):
                         return x
 
 def play(board,player):
-    print_board(board)
+    print(player)
     if check_win(board) in ["X","O"]:
         print(check_win(board)+" is the winner!")
     else:
         if player == 0:
             player_move = input("Enter your move as column first and row second (ex. '21' = top middle position). ")
             board = move(board,player_move,"X")
-            play(move(board,1))
+            print(board)
+            print_board(board)
+            play(board,1)
         else:
-            board = move(board,ai_move,"X")
-            play(move(board,0))
+            board = move(board,ai_move(board),"O")
+            print(board)
+            print_board(board)
+            play(board,0)
         
     
 #board = [["X","O"," "],["O"," ","X"],[" "," ","X"]]
 
 board = [[" "," "," "],[" "," "," "],[" "," "," "]]
 
-play(board)
+print_board(board)
+play(board,0)
