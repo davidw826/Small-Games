@@ -47,8 +47,8 @@ class Board:
         return str(board)
 
     def move(self,player):
-        x = int(input("Enter horizontal position of next move"))-1
-        y = int(input("Enter vertical position of next move"))-1
+        x = int(input("Enter horizontal position of next move as number from 1 to "+str(self.size)))-1
+        y = int(input("Enter vertical position of next move as number from 1 to "+str(self.size)))-1
         if x < self.size and y < self.size:
             if self.tiles[y][x] == ' ':
                 self.tiles[y][x] = Tile(x,y,player,self.sep,self.size)
