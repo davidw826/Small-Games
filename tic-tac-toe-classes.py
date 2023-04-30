@@ -56,7 +56,7 @@ class Board:
             print("Oops! That is not a number! Try again.")
             self.move(player)
         if x < self.size and y < self.size and x >= 0 and y >= 0:
-            if self.tiles[y][x] == ' ':
+            if self.tiles[y][x].player == ' ':
                 self.tiles[y][x] = Tile(x,y,player,self.sep,self.size)
             else:
                 print("Oops! That space is already taken! Please try a different move.")
@@ -101,7 +101,7 @@ class Board:
         result = True
         for y in self.tiles:
             for x in y:
-                if y[x] == ' ':
+                if x.player == ' ':
                     result = False
         return result
     
@@ -126,8 +126,8 @@ def main(size,sep,border):
     while not board.win():
         print(board)
         print("Player "+player+"'s turn")
-        board.move()
+        board.move(player)
     winner = board.winner
-    #print(winner+" wins!")
+    print(winner+" wins!")
 
 main(size,sep,border)
