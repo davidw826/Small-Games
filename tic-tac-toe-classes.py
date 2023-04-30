@@ -1,6 +1,6 @@
 size = 3
 sep = '|'
-border = '-'+'\n'
+border = '-'*size*3+'\n'
 
 class Tile:
     
@@ -37,10 +37,11 @@ class Board:
             board.append([str(tile) for tile in row])
         board = [self.sep.join(row) for row in board]
         board = self.border.join(board)
+        board = self.border+board+self.border
         return str(board)
 
-def main(size):
+def main(size,sep,border):
     board = Board(size,sep,border)
     print(board)
 
-main(size)
+main(size,sep,border)
