@@ -1,6 +1,6 @@
 size = 3
 sep = '|'
-border = '-'*size*3+'\n'
+border = '-'*(size*3-2)+'\n'
 empty = '_'
 p1 = 'X'
 p2 = 'O'
@@ -64,8 +64,12 @@ class Board:
                 print("Oops! You gave a number not greater than 0 or a number larger than the size of the board! Please try a different move.")
                 self.move(player)
         except:
-            print("Oops! That is not a number! Try again.")
-            self.move(player)
+            if x == 'q' or y == 'q':
+                print("Quitting game...")
+                quit()
+            else:
+                print("Oops! That is not a number! Try again.")
+                self.move(player)
 
     def h_win(self):
         for row in self.tiles:
