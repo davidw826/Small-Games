@@ -46,6 +46,15 @@ class Board:
         board = self.border+board+self.border
         return str(board)
 
+    def move(self,player):
+        x = int(input("Enter horizontal position of next move"))-1
+        y = int(input("Enter vertical position of next move"))-1
+        if self.tiles[y][x] == ' ':
+            self.tiles[y][x] = Tile(x,y,player,self.sep,self.size)
+        else:
+            print("Oops! That space is already taken! Please try a different move.")
+            self.move(player)
+
     def h_win(self):
         for row in self.tiles:
             row = set(row)
