@@ -63,6 +63,16 @@ class Board:
             else:
                 i += 1
         return False
+    
+    def d_win(self,rev):
+        if rev:
+            d = {self.tiles[self.size-i][i] for i in range(self.size)}
+        else:
+            d = {self.tiles[i][i] for i in range(self.size)}
+        if len(d) == 1 and len({' '}+d) > 1:
+            return True
+        else:
+            return False
 
 def main(size,sep,border):
     board = Board(size,sep,border)
