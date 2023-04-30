@@ -117,7 +117,7 @@ def switch_player(p1,p2,current):
     else:
         return p1
 
-def main(size,sep,border):
+def main(size,sep,border,p1,p2):
     try:
         player
     except:
@@ -127,7 +127,8 @@ def main(size,sep,border):
         print(board)
         print("Player "+player+"'s turn")
         board.move(player)
-    winner = board.winner
-    print(winner+" wins!")
+        player = switch_player(p1,p2,player)
+    print(board)
+    print(board.winner+" wins!")
 
-main(size,sep,border)
+main(size,sep,border,p1,p2)
