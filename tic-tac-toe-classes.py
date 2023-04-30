@@ -106,7 +106,7 @@ class Board:
         return result
     
     def win(self):
-        if (h_win() or v_win() or d_win(True) or d_win(False) or full()):
+        if (self.h_win() or self.v_win() or self.d_win(True) or self.d_win(False) or self.full()):
             return True
         else:
             return False
