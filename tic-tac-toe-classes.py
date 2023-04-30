@@ -68,7 +68,7 @@ class Board:
     def h_win(self):
         for row in self.tiles:
             row = set(row)
-            if len(row) == 1 and len({' '}+row) > 1:
+            if len(row) == 1 and len({' '}|row) > 1:
                 self.winner = row[0]
                 return True
             else:
@@ -78,7 +78,7 @@ class Board:
         i = 0
         while i < self.size:
             col = {row[i] for row in self.tiles}
-            if len(col) == 1 and len({' '}+col) > 1:
+            if len(col) == 1 and len({' '}|col) > 1:
                 self.winner = col[0]
                 return True
             else:
@@ -90,7 +90,7 @@ class Board:
             d = {self.tiles[self.size-i][i] for i in range(self.size)}
         else:
             d = {self.tiles[i][i] for i in range(self.size)}
-        if len(d) == 1 and len({' '}+d) > 1:
+        if len(d) == 1 and len({' '}|d) > 1:
             self.winner = d[0]
             return True
         else:
