@@ -67,7 +67,7 @@ class Board:
 
     def h_win(self):
         for row in self.tiles:
-            row = set([str(row) for tile in row])
+            row = set([tile.player for tile in row])
             if len(row) == 1 and ' ' not in row:
                 self.winner = list(row)[0]
                 return True
@@ -77,7 +77,7 @@ class Board:
     def v_win(self):
         i = 0
         while i < self.size:
-            col = {str(row[i]) for row in self.tiles}
+            col = {row[i].player for row in self.tiles}
             if len(col) == 1 and len({' '}|col) > 1:
                 self.winner = list(col)[0]
                 return True
@@ -87,9 +87,9 @@ class Board:
     
     def d_win(self,rev):
         if rev:
-            d = {str(self.tiles[self.size-i][i]) for i in range(self.size)}
+            d = {self.tiles[self.size-i][i].player for i in range(self.size)}
         else:
-            d = {str(self.tiles[i][i]) for i in range(self.size)}
+            d = {self.tiles[i][i].player for i in range(self.size)}
         if len(d) == 1 and len({' '}|d) > 1:
             self.winner = list(d)[0]
             return True
