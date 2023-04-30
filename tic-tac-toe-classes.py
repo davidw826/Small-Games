@@ -1,4 +1,4 @@
-size = 2
+size = 3
 sep = '|'
 border = '-'*size*3+'\n'
 empty = '_'
@@ -119,11 +119,8 @@ def switch_player(p1,p2,current):
         return p1
 
 def main(size,sep,border,p1,p2,empty):
-    try:
-        player
-    except:
-        player = p1
-        board = Board(size,sep,border,empty)
+    player = p1
+    board = Board(size,sep,border,empty)
     while not board.win():
         print(board)
         print("Player "+player+"'s turn")
