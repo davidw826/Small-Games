@@ -1,6 +1,8 @@
 size = 3
 sep = '|'
 border = '-'*size*3+'\n'
+p1 = 'X'
+p2 = 'O'
 
 class Tile:
     
@@ -67,6 +69,7 @@ class Board:
         for row in self.tiles:
             row = set(row)
             if len(row) == 1 and len({' '}+row) > 1:
+                self.winner = row[0]
                 return True
             else:
                 return False
@@ -76,6 +79,7 @@ class Board:
         while i < self.size:
             col = {row[i] for row in self.tiles}
             if len(col) == 1 and len({' '}+col) > 1:
+                self.winner = col[0]
                 return True
             else:
                 i += 1
@@ -87,18 +91,42 @@ class Board:
         else:
             d = {self.tiles[i][i] for i in range(self.size)}
         if len(d) == 1 and len({' '}+d) > 1:
+            self.winner = d[0]
             return True
         else:
             return False
     
+    def full(self):
+        self.winner = "Nobody"
+        result = True
+        for y in self.tiles:
+            for x in y:
+                if y[x] == ' ':
+                    result = False
+        return result
+    
     def win(self):
-        if (h_win or v_win or d_win(True) or d_win(False)):
+        if (h_win() or v_win() or d_win(True) or d_win(False) or full()):
             return True
         else:
             return False
 
+def switch_player(p1,p2,current):
+    if current == p1:
+        return p2
+    else:
+        return p1
+
 def main(size,sep,border):
-    board = Board(size,sep,border)
-    print(board)
+    try:
+        player
+    except:
+        player = p1
+        board = Board(size,sep,border)
+    while not board.win():
+        print(board)
+        print("Player "+player+"'s turn")
+        board.move()
+    print(board.winner+" wins!")
 
 main(size,sep,border)
