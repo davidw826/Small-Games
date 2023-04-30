@@ -7,15 +7,21 @@ class Tile:
         self.y = y
         self.player = player
     
+    def __str__(self):
+        return self.player
+    
 class Board:
     
-    def __init__(self,size,tiles):
-        tiles = []
+    def __init__(self,size):
+        self.tiles = []
         for x in range(size):
-            tiles.append([Tile(x,y,' ') for y in range(size)])
+            self.tiles.append([Tile(x,y,' ') for y in range(size)])
     
     def __str__(self):
-        return tiles
+        return str(self.tiles)
 
-main(size):
-    board = Board
+def main(size):
+    board = Board(size)
+    print(board)
+
+main(size)
