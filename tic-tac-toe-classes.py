@@ -14,8 +14,12 @@ class Tile:
     def __str__(self):
         appear = self.player
         if self.x == 0:
-            appear = sep
-        return self.player
+            appear = self.sep+self.player
+        else:
+            appear = self.player
+        if self.x == self.size-1:
+            appear += self.sep
+        return appear
     
 class Board:
     
