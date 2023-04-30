@@ -54,17 +54,17 @@ class Board:
         try:
             x = int(input("Enter horizontal position of next move as number from 1 to "+str(self.size)+": "))-1
             y = int(input("Enter vertical position of next move as number from 1 to "+str(self.size)+": "))-1
+            if x < self.size and y < self.size and x >= 0 and y >= 0:
+                if self.tiles[y][x].player == self.empty:
+                    self.tiles[y][x] = Tile(x,y,player,self.sep,self.size)
+                else:
+                    print("Oops! That space is already taken! Please try a different move.")
+                    self.move(player)
+            else:
+                print("Oops! You gave a number not greater than 0 or a number larger than the size of the board! Please try a different move.")
+                self.move(player)
         except:
             print("Oops! That is not a number! Try again.")
-            self.move(player)
-        if x < self.size and y < self.size and x >= 0 and y >= 0:
-            if self.tiles[y][x].player == self.empty:
-                self.tiles[y][x] = Tile(x,y,player,self.sep,self.size)
-            else:
-                print("Oops! That space is already taken! Please try a different move.")
-                self.move(player)
-        else:
-            print("Oops! You gave a number not greater than 0 or a number larger than the size of the board! Please try a different move.")
             self.move(player)
 
     def h_win(self):
