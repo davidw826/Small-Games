@@ -49,10 +49,14 @@ class Board:
     def move(self,player):
         x = int(input("Enter horizontal position of next move"))-1
         y = int(input("Enter vertical position of next move"))-1
-        if self.tiles[y][x] == ' ':
-            self.tiles[y][x] = Tile(x,y,player,self.sep,self.size)
+        if x < self.size and y < self.size:
+            if self.tiles[y][x] == ' ':
+                self.tiles[y][x] = Tile(x,y,player,self.sep,self.size)
+            else:
+                print("Oops! That space is already taken! Please try a different move.")
+                self.move(player)
         else:
-            print("Oops! That space is already taken! Please try a different move.")
+            print("Oops! You entered a non-number, a number not greater than 0, or a number larger than the size of the board! Please try a different move.")
             self.move(player)
 
     def h_win(self):
