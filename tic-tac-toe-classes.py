@@ -48,11 +48,16 @@ class Board:
 
     def h_win(self):
         for row in self.tiles:
-            s = set(row)
-            if len(s) == 1 and len({' '}+s) > 1:
+            row = set(row)
+            if len(row) == 1 and len({' '}+row) > 1:
                 return True
             else:
                 return False
+    
+    def v_win(self):
+        i = 0
+        while i < self.size:
+            col = [row[i] for row ]
 
 def main(size,sep,border):
     board = Board(size,sep,border)
