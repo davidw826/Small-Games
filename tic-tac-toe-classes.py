@@ -40,6 +40,9 @@ class Board:
         board = self.border+board+self.border
         return str(board)
 
+    def h_win(self):
+        
+
 def main(size,sep,border):
     board = Board(size,sep,border)
     print(board)
