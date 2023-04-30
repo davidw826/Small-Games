@@ -57,7 +57,12 @@ class Board:
     def v_win(self):
         i = 0
         while i < self.size:
-            col = [row[i] for row ]
+            col = {row[i] for row in self.tiles}
+            if len(col) == 1 and len({' '}+col) > 1:
+                return True
+            else:
+                i += 1
+        return False
 
 def main(size,sep,border):
     board = Board(size,sep,border)
