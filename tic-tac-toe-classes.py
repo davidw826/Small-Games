@@ -1,3 +1,5 @@
+size = 3
+
 class Tile:
     
     def __init__(self,x,y,player):
@@ -11,4 +13,9 @@ class Board:
         tiles = []
         for x in range(size):
             tiles.append([Tile(x,y,' ') for y in range(size)])
-        
+    
+    def __str__(self):
+        return tiles
+
+main(size):
+    board = Board
