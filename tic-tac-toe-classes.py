@@ -64,7 +64,7 @@ class Board:
                 print("Oops! That space is already taken! Please try a different move.")
                 self.move(player)
         else:
-            print("Oops! You a number not greater than 0 or a number larger than the size of the board! Please try a different move.")
+            print("Oops! You gave a number not greater than 0 or a number larger than the size of the board! Please try a different move.")
             self.move(player)
 
     def h_win(self):
