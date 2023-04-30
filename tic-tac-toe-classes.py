@@ -12,10 +12,10 @@ class Tile:
         self.size = size
 
     def __eq__(self,other):
-        if self.player == ' ':
-            return False
-        else:
-            return self.player
+        return self.player == other.player
+    
+    def __hash__(self):
+        return self.player
     
     def __str__(self):
         appear = self.player
@@ -47,7 +47,12 @@ class Board:
         return str(board)
 
     def h_win(self):
-        
+        for row in self.tiles:
+            s = set(row)
+            if len(s) == 1 and len({' '}+s) > 1:
+                return True
+            else:
+                return False
 
 def main(size,sep,border):
     board = Board(size,sep,border)
