@@ -1,4 +1,6 @@
 size = 3
+sep = '|'
+border = '-'
 
 class Tile:
     
@@ -7,21 +9,25 @@ class Tile:
         self.y = y
         self.player = player
     
-    def __str__(self):
+    def __repr__(self):
         return self.player
     
 class Board:
     
-    def __init__(self,size):
+    def __init__(self,size,sep,border):
+        self.sep = sep
+        self.border = border
         self.tiles = []
         for x in range(size):
             self.tiles.append([Tile(x,y,' ') for y in range(size)])
     
     def __str__(self):
-        return str(self.tiles)
+        board = [self.sep.join(row) for row in self.tiles]
+        board = self.border.join(board)
+        return board
 
 def main(size):
-    board = Board(size)
+    board = Board(size,sep,border)
     print(board)
 
 main(size)
