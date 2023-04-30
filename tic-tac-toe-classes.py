@@ -1,7 +1,7 @@
-size = 3
+size = 2
 sep = '|'
 border = '-'*size*3+'\n'
-empty = '   '
+empty = '_'
 p1 = 'X'
 p2 = 'O'
 
