@@ -71,8 +71,7 @@ class Board:
             if len(row) == 1 and ' ' not in row:
                 self.winner = list(row)[0]
                 return True
-            else:
-                return False
+        return False
     
     def v_win(self):
         i = 0
