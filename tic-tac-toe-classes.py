@@ -69,7 +69,7 @@ class Board:
         for row in self.tiles:
             row = set(row)
             if len(row) == 1 and len({' '}|row) > 1:
-                self.winner = row[0]
+                self.winner = list(row)[0]
                 return True
             else:
                 return False
@@ -79,7 +79,7 @@ class Board:
         while i < self.size:
             col = {row[i] for row in self.tiles}
             if len(col) == 1 and len({' '}|col) > 1:
-                self.winner = col[0]
+                self.winner = list(col)[0]
                 return True
             else:
                 i += 1
@@ -91,7 +91,7 @@ class Board:
         else:
             d = {self.tiles[i][i] for i in range(self.size)}
         if len(d) == 1 and len({' '}|d) > 1:
-            self.winner = d[0]
+            self.winner = list(d)[0]
             return True
         else:
             return False
