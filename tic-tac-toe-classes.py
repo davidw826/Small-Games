@@ -73,6 +73,12 @@ class Board:
             return True
         else:
             return False
+    
+    def win(self):
+        if (h_win or v_win or d_win(True) or d_win(False)):
+            return True
+        else:
+            return False
 
 def main(size,sep,border):
     board = Board(size,sep,border)
