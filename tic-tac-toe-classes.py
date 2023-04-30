@@ -24,11 +24,12 @@ class Tile:
 class Board:
     
     def __init__(self,size,sep,border):
+        self.size = size
         self.sep = sep
         self.border = border
         self.tiles = []
-        for x in range(size):
-            self.tiles.append([Tile(x,y,' ',self.sep,self.size) for y in range(size)])
+        for x in range(self.size):
+            self.tiles.append([Tile(x,y,' ',self.sep,self.size) for y in range(self.size)])
     
     def __str__(self):
         board = []
