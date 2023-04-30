@@ -78,7 +78,7 @@ class Board:
         i = 0
         while i < self.size:
             col = {row[i].player for row in self.tiles}
-            if len(col) == 1 and len({' '}|col) > 1:
+            if len(col) == 1 and ' ' not in col:
                 self.winner = list(col)[0]
                 return True
             else:
@@ -87,10 +87,10 @@ class Board:
     
     def d_win(self,rev):
         if rev:
-            d = {self.tiles[self.size-i][i].player for i in range(self.size)}
+            d = {self.tiles[self.size-1-i][i].player for i in range(self.size)}
         else:
             d = {self.tiles[i][i].player for i in range(self.size)}
-        if len(d) == 1 and len({' '}|d) > 1:
+        if len(d) == 1 and ' ' not in d:
             self.winner = list(d)[0]
             return True
         else:
