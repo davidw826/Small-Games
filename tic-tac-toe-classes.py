@@ -28,8 +28,8 @@ class Board:
         self.sep = sep
         self.border = border
         self.tiles = []
-        for x in range(self.size):
-            self.tiles.append([Tile(x,y,' ',self.sep,self.size) for y in range(self.size)])
+        for y in range(self.size):
+            self.tiles.append([Tile(x,y,' ',self.sep,self.size) for x in range(self.size)])
     
     def __str__(self):
         board = []
