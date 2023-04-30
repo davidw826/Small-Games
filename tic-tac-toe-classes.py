@@ -39,7 +39,7 @@ class Board:
         self.empty = empty
         self.tiles = []
         for y in range(self.size):
-            self.tiles.append([Tile(x,y,' ',self.sep,self.size) for x in range(self.size)])
+            self.tiles.append([Tile(x,y,self.empty,self.sep,self.size) for x in range(self.size)])
     
     def __str__(self):
         board = []
