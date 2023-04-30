@@ -10,6 +10,12 @@ class Tile:
         self.player = player
         self.sep = sep
         self.size = size
+
+    def __eq__(self,other):
+        if self.player == ' ':
+            return False
+        else:
+            return self.player
     
     def __str__(self):
         appear = self.player
