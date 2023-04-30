@@ -127,6 +127,7 @@ def main(size,sep,border):
         print(board)
         print("Player "+player+"'s turn")
         board.move()
-    print(board.winner+" wins!")
+    winner = board.winner
+    print(winner+" wins!")
 
 main(size,sep,border)
