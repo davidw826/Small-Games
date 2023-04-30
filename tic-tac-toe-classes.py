@@ -18,7 +18,7 @@ class Tile:
         else:
             appear = self.player
         if self.x == self.size-1:
-            appear += self.sep
+            appear += self.sep+'\n'
         return appear
     
 class Board:
