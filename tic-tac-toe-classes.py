@@ -52,8 +52,8 @@ class Board:
 
     def move(self,player):
         try:
-            x = int(input("Enter horizontal position of next move as number from 1 to "+str(self.size))+": ")-1
-            y = int(input("Enter vertical position of next move as number from 1 to "+str(self.size))+": ")-1
+            x = int(input("Enter horizontal position of next move as number from 1 to "+str(self.size)+": "))-1
+            y = int(input("Enter vertical position of next move as number from 1 to "+str(self.size)+": "))-1
         except:
             print("Oops! That is not a number! Try again.")
             self.move(player)
