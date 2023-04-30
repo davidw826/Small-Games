@@ -1,6 +1,7 @@
 size = 3
 sep = '|'
 border = '-'*size*3+'\n'
+empty = ' '
 p1 = 'X'
 p2 = 'O'
 
@@ -31,10 +32,11 @@ class Tile:
     
 class Board:
     
-    def __init__(self,size,sep,border):
+    def __init__(self,size,sep,border,empty):
         self.size = size
         self.sep = sep
         self.border = border
+        self.empty = empty
         self.tiles = []
         for y in range(self.size):
             self.tiles.append([Tile(x,y,' ',self.sep,self.size) for x in range(self.size)])
@@ -56,7 +58,7 @@ class Board:
             print("Oops! That is not a number! Try again.")
             self.move(player)
         if x < self.size and y < self.size and x >= 0 and y >= 0:
-            if self.tiles[y][x].player == ' ':
+            if self.tiles[y][x].player == self.empty:
                 self.tiles[y][x] = Tile(x,y,player,self.sep,self.size)
             else:
                 print("Oops! That space is already taken! Please try a different move.")
@@ -68,7 +70,7 @@ class Board:
     def h_win(self):
         for row in self.tiles:
             row = set([tile.player for tile in row])
-            if len(row) == 1 and ' ' not in row:
+            if len(row) == 1 and self.empty not in row:
                 self.winner = list(row)[0]
                 return True
         return False
@@ -77,7 +79,7 @@ class Board:
         i = 0
         while i < self.size:
             col = {row[i].player for row in self.tiles}
-            if len(col) == 1 and ' ' not in col:
+            if len(col) == 1 and self.empty not in col:
                 self.winner = list(col)[0]
                 return True
             else:
@@ -89,7 +91,7 @@ class Board:
             d = {self.tiles[self.size-1-i][i].player for i in range(self.size)}
         else:
             d = {self.tiles[i][i].player for i in range(self.size)}
-        if len(d) == 1 and ' ' not in d:
+        if len(d) == 1 and self.empty not in d:
             self.winner = list(d)[0]
             return True
         else:
@@ -100,7 +102,7 @@ class Board:
         result = True
         for y in self.tiles:
             for x in y:
-                if x.player == ' ':
+                if x.player == self.empty:
                     result = False
         return result
     
